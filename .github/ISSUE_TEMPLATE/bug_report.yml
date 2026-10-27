@@ -1,67 +1,71 @@
-name: 不具合報告 / Bug report
-description: AnyaTalk Lite または VR Reader の不具合 / Something in AnyaTalk Lite or the VR Reader doesn't work
-labels: ["bug"]
+name: Bug report / 不具合報告
+description: Something does not work as described. / 説明どおりに動かない
+labels: [bug]
 body:
   - type: markdown
     attributes:
       value: |
-        **API キーは貼らないでください。** / **Never paste API keys.**
-        日本語・English・中文、どれでも大丈夫です。 / Japanese, English or Chinese are all fine.
+        Never paste API keys (Groq, Fish Audio, …) or your .credential file. Do not attach the downloaded ZIP or VR Reader files. Screenshots and short videos are welcome. Issues are public.
+        API キー（Groq・Fish Audio など）や .credential ファイルは絶対に貼らないでください。ダウンロードした ZIP や VR Reader のファイルは添付しないでください。スクリーンショットや短い動画は歓迎です。この場は公開されています。
+  - type: dropdown
+    id: product
+    attributes:
+      label: Product / 製品
+      options:
+        - AnyaTalk Lite (free) / AnyaTalk Lite（無料）
+        - AnyaTalk VR Reader / AnyaTalk VR Reader
+        - Not sure / わからない
+    validations:
+      required: true
   - type: input
     id: version
     attributes:
-      label: バージョン / Version
-      description: ダウンロードした ZIP のファイル名 / From the name of the ZIP you downloaded
+      label: Product version / 製品バージョン
+      description: "From the name of the ZIP you downloaded, e.g. AnyaTalk-1.0.0-windows-x64-lite-gpu.zip → 1.0.0 / ダウンロードした ZIP のファイル名から"
       placeholder: "1.0.0"
     validations:
       required: true
   - type: dropdown
     id: feature
     attributes:
-      label: どの機能？ / Which feature?
+      label: Feature / 機能
       options:
-        - 自分の声の翻訳 / Translating my voice
-        - 相手の声の翻訳 / Translating other players
-        - 画面の文字 (Alt+Q) / Screen reading (Alt+Q)
-        - クイックメッセージ (Alt+Y) / Quick message (Alt+Y)
-        - VR ジェスチャー読み取り / VR gesture reading (VR Reader)
-        - 手の甲の字幕 / Hand subtitles (VR Reader)
-        - 読み上げ / Voice output
-        - インストール・起動 / Install or start-up
-        - その他 / Other
+        - Translating my voice / 自分の声の翻訳
+        - Translating other players / 相手の声の翻訳
+        - Screen reading (Alt+Q) / 画面の文字の翻訳
+        - Quick message (Alt+Y) / クイックメッセージ
+        - VR gesture reading / VR ジェスチャー読み取り
+        - Wrist subtitles / 手首の字幕
+        - Voice output / 読み上げ
+        - Local deployment or NVIDIA GPU / ローカル実行・NVIDIA GPU
+        - Install or start-up / インストール・起動
+        - Other / その他
     validations:
       required: true
-  - type: dropdown
-    id: mode
-    attributes:
-      label: VRChat のモード / VRChat mode
-      options:
-        - デスクトップ / Desktop
-        - VR (SteamVR)
-        - 関係ない / Not relevant
   - type: input
-    id: services
+    id: environment
     attributes:
-      label: 使っているサービス・GPU / Services and GPU
-      description: 例：Groq + Fish Audio、Local Whisper + Ollama、NVIDIA RTX 3060 / e.g. Groq + Fish Audio, Local Whisper + Ollama, NVIDIA RTX 3060
-  - type: textarea
-    id: what
-    attributes:
-      label: 何が起きた？ / What happened?
-      description: 期待した動作と、実際の動作 / What you expected, and what happened instead
-    validations:
-      required: true
+      label: Environment / 環境
+      description: Windows version, GPU, VRChat desktop or VR (SteamVR headset), and the services you use. / Windows のバージョン、GPU、VRChat のデスクトップ／VR（SteamVR のヘッドセット）、使っているサービス
+      placeholder: "Windows 11, RTX 3060, VRChat desktop, Groq + Fish Audio"
   - type: textarea
     id: steps
     attributes:
-      label: 再現手順 / Steps to reproduce
+      label: Steps to reproduce / 再現手順
       placeholder: |
         1.
         2.
         3.
+    validations:
+      required: true
   - type: textarea
-    id: log
+    id: expected
     attributes:
-      label: ログ（任意）/ Log (optional)
-      description: "`%LOCALAPPDATA%\\AnyaTalk\\logs\\anyatalk-lite.log` の該当部分。キーが含まれていないか確認してください。 / The relevant part of the log. Check it contains no keys."
-      render: text
+      label: What happened, and what you expected / 起きたことと期待した動作
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshots, video or logs / スクリーンショット・動画・ログ
+      description: 'Log: %LOCALAPPDATA%\AnyaTalk\logs\anyatalk-lite.log — check it for keys and personal information first. / ログの場所は左記のとおりです。キーや個人情報が含まれていないか確認してください'

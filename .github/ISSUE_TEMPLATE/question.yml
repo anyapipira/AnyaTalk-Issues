@@ -1,0 +1,21 @@
+name: Question / 質問
+description: Ask about installation, setup or use. / 導入・設定・使い方についての質問
+labels: [question]
+body:
+  - type: dropdown
+    id: product
+    attributes:
+      label: Product / 製品
+      options:
+        - AnyaTalk Lite (free) / AnyaTalk Lite（無料）
+        - AnyaTalk VR Reader / AnyaTalk VR Reader
+        - Not sure / わからない
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Question / 質問内容
+      description: Please check the PDF guides on the BOOTH page first. / まず BOOTH ページの PDF 説明書をご確認ください
+    validations:
+      required: true
