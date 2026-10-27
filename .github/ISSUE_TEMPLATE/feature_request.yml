@@ -1,0 +1,15 @@
+name: 機能の要望 / Feature request
+description: あったらいいな、を教えてください / Suggest something AnyaTalk could do
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: 欲しい機能 / What would you like?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: どんな場面で使いたい？ / When would you use it?
+      description: VRChat でのどんな場面か教えてください / Tell us the situation in VRChat

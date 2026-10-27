@@ -1,0 +1,67 @@
+name: 不具合報告 / Bug report
+description: AnyaTalk Lite または VR Reader の不具合 / Something in AnyaTalk Lite or the VR Reader doesn't work
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **API キーは貼らないでください。** / **Never paste API keys.**
+        日本語・English・中文、どれでも大丈夫です。 / Japanese, English or Chinese are all fine.
+  - type: input
+    id: version
+    attributes:
+      label: バージョン / Version
+      description: ダウンロードした ZIP のファイル名 / From the name of the ZIP you downloaded
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: feature
+    attributes:
+      label: どの機能？ / Which feature?
+      options:
+        - 自分の声の翻訳 / Translating my voice
+        - 相手の声の翻訳 / Translating other players
+        - 画面の文字 (Alt+Q) / Screen reading (Alt+Q)
+        - クイックメッセージ (Alt+Y) / Quick message (Alt+Y)
+        - VR ジェスチャー読み取り / VR gesture reading (VR Reader)
+        - 手の甲の字幕 / Hand subtitles (VR Reader)
+        - 読み上げ / Voice output
+        - インストール・起動 / Install or start-up
+        - その他 / Other
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: VRChat のモード / VRChat mode
+      options:
+        - デスクトップ / Desktop
+        - VR (SteamVR)
+        - 関係ない / Not relevant
+  - type: input
+    id: services
+    attributes:
+      label: 使っているサービス・GPU / Services and GPU
+      description: 例：Groq + Fish Audio、Local Whisper + Ollama、NVIDIA RTX 3060 / e.g. Groq + Fish Audio, Local Whisper + Ollama, NVIDIA RTX 3060
+  - type: textarea
+    id: what
+    attributes:
+      label: 何が起きた？ / What happened?
+      description: 期待した動作と、実際の動作 / What you expected, and what happened instead
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 再現手順 / Steps to reproduce
+      placeholder: |
+        1.
+        2.
+        3.
+  - type: textarea
+    id: log
+    attributes:
+      label: ログ（任意）/ Log (optional)
+      description: "`%LOCALAPPDATA%\\AnyaTalk\\logs\\anyatalk-lite.log` の該当部分。キーが含まれていないか確認してください。 / The relevant part of the log. Check it contains no keys."
+      render: text
