@@ -1,0 +1,71 @@
+name: Bug report / 不具合報告
+description: Something does not work as described. / 説明どおりに動かない
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Never paste API keys (Groq, Fish Audio, …) or your .credential file. Do not attach the downloaded ZIP or VR Reader files. Screenshots and short videos are welcome. Issues are public.
+        API キー（Groq・Fish Audio など）や .credential ファイルは絶対に貼らないでください。ダウンロードした ZIP や VR Reader のファイルは添付しないでください。スクリーンショットや短い動画は歓迎です。この場は公開されています。
+  - type: dropdown
+    id: product
+    attributes:
+      label: Product / 製品
+      options:
+        - AnyaTalk Lite (free) / AnyaTalk Lite（無料）
+        - AnyaTalk VR Reader / AnyaTalk VR Reader
+        - Not sure / わからない
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Product version / 製品バージョン
+      description: "From the name of the ZIP you downloaded, e.g. AnyaTalk-1.0.0-windows-x64-lite-gpu.zip → 1.0.0 / ダウンロードした ZIP のファイル名から"
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: feature
+    attributes:
+      label: Feature / 機能
+      options:
+        - Translating my voice / 自分の声の翻訳
+        - Translating other players / 相手の声の翻訳
+        - Screen reading (Alt+Q) / 画面の文字の翻訳
+        - Quick message (Alt+Y) / クイックメッセージ
+        - VR gesture reading / VR ジェスチャー読み取り
+        - Wrist subtitles / 手首の字幕
+        - Voice output / 読み上げ
+        - Local deployment or NVIDIA GPU / ローカル実行・NVIDIA GPU
+        - Install or start-up / インストール・起動
+        - Other / その他
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment / 環境
+      description: Windows version, GPU, VRChat desktop or VR (SteamVR headset), and the services you use. / Windows のバージョン、GPU、VRChat のデスクトップ／VR（SteamVR のヘッドセット）、使っているサービス
+      placeholder: "Windows 11, RTX 3060, VRChat desktop, Groq + Fish Audio"
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce / 再現手順
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What happened, and what you expected / 起きたことと期待した動作
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshots, video or logs / スクリーンショット・動画・ログ
+      description: 'Log: %LOCALAPPDATA%\AnyaTalk\logs\anyatalk-lite.log — check it for keys and personal information first. / ログの場所は左記のとおりです。キーや個人情報が含まれていないか確認してください'

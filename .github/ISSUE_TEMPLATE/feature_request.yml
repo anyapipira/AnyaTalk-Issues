@@ -1,0 +1,25 @@
+name: Feature request / 要望
+description: Suggest an idea or improvement. / アイデアや改善の提案
+labels: [enhancement]
+body:
+  - type: dropdown
+    id: product
+    attributes:
+      label: Product / 製品
+      options:
+        - AnyaTalk Lite (free) / AnyaTalk Lite（無料）
+        - AnyaTalk VR Reader / AnyaTalk VR Reader
+        - Not sure / わからない
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like? / どんな機能がほしいですか
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: How would you use it? / どのように使いたいですか
+      description: For example, which language pair and which situation in VRChat. / たとえば、どの言語の組み合わせで、VRChat のどんな場面か
